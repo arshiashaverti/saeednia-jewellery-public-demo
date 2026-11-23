@@ -1,0 +1,1786 @@
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/estedad-font@v5.1.0/dist/font-face.css');
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/irannastaliq-font@v1.0.0/dist/font-face.css');
+@import "tailwindcss";
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *, .dark, .dark *));
+
+@layer base {
+  :root {
+    --font-vazir: 'Estedad', 'Vazirmatn', system-ui, -apple-system, sans-serif;
+    --font-artistic: 'IranNastaliq', 'Katibeh', 'Gulzar', 'Aref Ruqaa', 'Estedad', serif;
+    --font-cinzel: 'Cinzel', serif;
+    --font-cormorant: 'Cormorant Garamond', serif;
+    --font-pinyon: 'Pinyon Script', cursive;
+    --font-alex: 'Alex Brush', cursive;
+  }
+
+  body {
+    font-family: var(--font-vazir);
+    background-color: #0A0A0B;
+    color: #EDE8DF;
+    overflow-x: clip;
+  }
+
+  /* Custom subtle luxury scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0D0D0E;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2A2A2E;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #C5A059;
+  }
+}
+
+.font-cinzel {
+  font-family: var(--font-cinzel);
+}
+
+.font-cormorant {
+  font-family: var(--font-cormorant);
+}
+
+.font-pinyon {
+  font-family: var(--font-pinyon);
+}
+
+.font-alex {
+  font-family: var(--font-alex);
+}
+
+.font-vazir {
+  font-family: var(--font-vazir);
+}
+
+.font-persian-artistic {
+  font-family: var(--font-artistic);
+}
+
+/* Logo contrast booster for dark surfaces: makes black script "Saeednia" pop with crisp luminous definition without altering logo pixels */
+.logo-contrast-dark {
+  filter: drop-shadow(0 0 1.5px rgba(255, 248, 230, 0.9)) drop-shadow(0 0 8px rgba(212, 175, 55, 0.45)) drop-shadow(0 12px 24px rgba(0, 0, 0, 0.9));
+}
+
+/* Luxury accent text shimmer */
+.gold-text-accent {
+  color: #D4AF37;
+}
+
+/* Homepage Hero Brand Title */
+.hero-brand-title {
+  background: linear-gradient(180deg, #FFFDF2 0%, #F3DE9A 50%, #C5A059 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.95));
+  transition: color 300ms ease, filter 300ms ease;
+}
+
+[data-theme="light"] .hero-brand-title,
+html.light .hero-brand-title {
+  background: linear-gradient(180deg, #1C1A17 0%, #4D3916 50%, #7E5A23 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.12)) !important;
+}
+
+/* Footer Single-Line Matte Gold Title */
+.footer-brand-matte-gold {
+  color: #C5A059;
+  text-shadow: none;
+}
+
+[data-theme="light"] .footer-brand-matte-gold,
+html.light .footer-brand-matte-gold {
+  color: #896126 !important;
+  text-shadow: none !important;
+}
+
+/* Subtle obsidian card border */
+.obsidian-border {
+  border: 1px solid rgba(197, 160, 89, 0.15);
+}
+
+.obsidian-border-hover:hover {
+  border-color: rgba(197, 160, 89, 0.4);
+}
+
+/* ==========================================================================
+   Signature Luxury Entrance Page Transition — Saeednia Jewellery
+   ========================================================================== */
+
+@keyframes luxuryChampagneLightExpand {
+  0% {
+    transform: scale(0.62);
+    opacity: 0;
+  }
+  28% {
+    transform: scale(0.98);
+    opacity: 0.2;
+  }
+  70% {
+    transform: scale(1.38);
+    opacity: 0.1;
+  }
+  100% {
+    transform: scale(1.68);
+    opacity: 0;
+  }
+}
+
+@keyframes luxuryCenterpieceExit {
+  0% {
+    opacity: 1;
+    transform: translateY(-6%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(-6% - 10px)) scale(1.015);
+  }
+}
+
+@keyframes luxuryCenterpieceExitDesktop {
+  0% {
+    opacity: 1;
+    transform: translateY(-10%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(-10% - 10px)) scale(1.015);
+  }
+}
+
+@keyframes luxuryBrandTagExit {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@keyframes luxuryThresholdLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(0) scaleY(0.55);
+  }
+  22% {
+    opacity: 0.55;
+    transform: translateX(-14px) scaleY(0.95);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-72px) scaleY(1.05);
+  }
+}
+
+@keyframes luxuryThresholdRight {
+  0% {
+    opacity: 0;
+    transform: translateX(0) scaleY(0.55);
+  }
+  22% {
+    opacity: 0.55;
+    transform: translateX(14px) scaleY(0.95);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(72px) scaleY(1.05);
+  }
+}
+
+@keyframes luxuryEntranceExit {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  14% {
+    transform: scale(1.004);
+    opacity: 0.98;
+  }
+  58% {
+    transform: scale(1.018);
+    opacity: 0.52;
+  }
+  100% {
+    transform: scale(1.032);
+    opacity: 0;
+  }
+}
+
+@keyframes luxuryPageReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.992);
+  }
+  18% {
+    opacity: 0.14;
+    transform: translateY(8px) scale(0.994);
+  }
+  65% {
+    opacity: 0.78;
+    transform: translateY(2px) scale(0.998);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-luxury-champagne-light {
+  animation: luxuryChampagneLightExpand 1150ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-luxury-centerpiece-exit {
+  animation: luxuryCenterpieceExit 560ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity;
+}
+
+@media (min-width: 640px) {
+  .animate-luxury-centerpiece-exit {
+    animation: luxuryCenterpieceExitDesktop 560ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+.animate-luxury-brandtag-exit {
+  animation: luxuryBrandTagExit 460ms ease-out forwards;
+  will-change: transform, opacity;
+}
+
+.animate-luxury-threshold-left {
+  animation: luxuryThresholdLeft 1050ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-luxury-threshold-right {
+  animation: luxuryThresholdRight 1050ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-luxury-entrance-exit {
+  animation: luxuryEntranceExit 1220ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-luxury-page-reveal {
+  animation: luxuryPageReveal 1240ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* Calm Ambient Polished Gold Sheen (Like reflected light on fine jewellery) */
+@keyframes ambientGoldSheen {
+  0%, 15% {
+    transform: translateX(-160%) skewX(-20deg);
+    opacity: 0;
+  }
+  28% {
+    opacity: 0.18;
+  }
+  48% {
+    transform: translateX(260%) skewX(-20deg);
+    opacity: 0.08;
+  }
+  52%, 100% {
+    transform: translateX(260%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+@keyframes ambientBorderGlint {
+  0%, 100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.animate-ambient-gold-sheen {
+  animation: ambientGoldSheen 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.animate-ambient-border-glint {
+  animation: ambientBorderGlint 6s ease-in-out infinite;
+}
+
+/* Ambient Decorative Light Halos & Facets */
+@keyframes ambientDriftSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(1.5deg);
+  }
+}
+
+@keyframes ambientBreatheSlow {
+  0%, 100% {
+    opacity: 0.65;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.04);
+  }
+}
+
+.animate-ambient-drift {
+  animation: ambientDriftSlow 20s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-ambient-breathe {
+  animation: ambientBreatheSlow 14s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+/* ==========================================================================
+   Luxury Light Theme Micro-Decor Animations (Stars, Diamonds & Light Halos)
+   ========================================================================== */
+@keyframes luxuryDecorTwinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes luxuryDecorFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(3deg);
+  }
+}
+
+@keyframes luxuryDecorPulseSlow {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+}
+
+.luxury-decor-twinkle {
+  animation: luxuryDecorTwinkle 7s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+.luxury-decor-float {
+  animation: luxuryDecorFloat 11s ease-in-out infinite;
+  will-change: transform;
+}
+
+.luxury-decor-pulse-slow {
+  animation: luxuryDecorPulseSlow 9s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .luxury-decor-twinkle,
+  .luxury-decor-float,
+  .luxury-decor-pulse-slow {
+    animation: none !important;
+    opacity: 0.65 !important;
+  }
+}
+
+/* Sinusoidal Wave Smooth Flow for Heritage & Luxury Sections */
+@keyframes sineWaveGlide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes sineWaveGlideReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes sineWavePulse {
+  0%, 100% {
+    opacity: 0.38;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 0.72;
+    transform: scaleY(1.06);
+  }
+}
+
+.animate-sine-wave-glide {
+  animation: sineWaveGlide 22s linear infinite;
+  will-change: transform;
+}
+
+.animate-sine-wave-glide-slow {
+  animation: sineWaveGlideReverse 32s linear infinite;
+  will-change: transform;
+}
+
+.animate-sine-wave-pulse {
+  animation: sineWavePulse 9s ease-in-out infinite;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-ambient-gold-sheen,
+  .animate-ambient-border-glint,
+  .animate-ambient-drift,
+  .animate-ambient-breathe {
+    animation: none !important;
+  }
+  @keyframes luxuryEntranceExitReduced {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  @keyframes luxuryPageRevealReduced {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  .animate-luxury-champagne-light,
+  .animate-luxury-threshold-left,
+  .animate-luxury-threshold-right {
+    display: none !important;
+  }
+  .animate-luxury-centerpiece-exit,
+  .animate-luxury-brandtag-exit {
+    animation: luxuryEntranceExitReduced 300ms ease-out forwards !important;
+    transform: none !important;
+  }
+  .animate-luxury-entrance-exit {
+    animation: luxuryEntranceExitReduced 400ms ease-out forwards !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  .animate-luxury-page-reveal {
+    animation: luxuryPageRevealReduced 400ms ease-out forwards !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* ==========================================================================
+   Top Corner Vertical Navigation Menu Animations
+   ========================================================================== */
+
+@keyframes cornerMenuSlideRTL {
+  from {
+    transform: translateX(100%);
+    opacity: 0.7;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes cornerMenuSlideLTR {
+  from {
+    transform: translateX(-100%);
+    opacity: 0.7;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+[dir="rtl"] .animate-slide-in {
+  animation: cornerMenuSlideRTL 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+[dir="ltr"] .animate-slide-in {
+  animation: cornerMenuSlideLTR 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes menuFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: menuFadeIn 250ms ease-out forwards;
+}
+
+/* ==========================================================================
+   Luxury Realistic 3D Depth & Tactile Surface System — Saeednia Jewellery
+   ========================================================================== */
+
+/* Multi-layered realistic shadow for obsidian product cards */
+.luxury-card-depth {
+  box-shadow: 
+    0 8px 24px -3px rgba(0, 0, 0, 0.82),
+    0 3px 8px 0 rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 0 rgba(197, 160, 89, 0.2),
+    inset 0 0 1px 1px rgba(255, 255, 255, 0.02);
+  transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 450ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 400ms ease;
+  will-change: transform, box-shadow;
+}
+
+.luxury-card-depth:hover {
+  transform: translateY(-5px) translateZ(0);
+  box-shadow: 
+    0 30px 60px -12px rgba(0, 0, 0, 0.98),
+    0 10px 25px -4px rgba(0, 0, 0, 0.75),
+    0 0 28px -2px rgba(197, 160, 89, 0.12),
+    inset 0 1px 0 0 rgba(212, 175, 55, 0.5);
+}
+
+.luxury-card-depth:active {
+  transform: translateY(-1.5px) scale(0.996);
+  transition-duration: 120ms;
+}
+
+/* Tactile Primary Button with delicate bevel specular highlight */
+.luxury-btn-tactile-primary {
+  box-shadow: 
+    0 5px 16px 0 rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.36),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.32);
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 250ms cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 250ms ease;
+}
+
+.luxury-btn-tactile-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 10px 28px 0 rgba(0, 0, 0, 0.85),
+    0 0 18px 0 rgba(197, 160, 89, 0.25),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.48),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.32);
+}
+
+.luxury-btn-tactile-primary:active {
+  transform: translateY(1px) scale(0.992);
+  box-shadow: 
+    0 2px 7px 0 rgba(0, 0, 0, 0.88),
+    inset 0 1px 2px rgba(0, 0, 0, 0.42);
+  transition-duration: 80ms;
+}
+
+/* Tactile Outline/Secondary Button */
+.luxury-btn-tactile-secondary {
+  box-shadow: 
+    0 3px 12px -1px rgba(0, 0, 0, 0.65),
+    inset 0 1px 0 0 rgba(197, 160, 89, 0.18);
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 250ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 250ms ease,
+              color 250ms ease,
+              background-color 250ms ease;
+}
+
+.luxury-btn-tactile-secondary:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 
+    0 8px 22px -2px rgba(0, 0, 0, 0.8),
+    0 0 16px -1px rgba(197, 160, 89, 0.22),
+    inset 0 1px 0 0 rgba(212, 175, 55, 0.36);
+}
+
+.luxury-btn-tactile-secondary:active {
+  transform: translateY(1px) scale(0.995);
+  box-shadow: 
+    0 1px 5px 0 rgba(0, 0, 0, 0.85),
+    inset 0 1px 2px rgba(0, 0, 0, 0.35);
+  transition-duration: 80ms;
+}
+
+/* Subtle Inset Stage Lighting for jewellery pedestals */
+.luxury-stage-depth {
+  box-shadow: 
+    inset 0 0 50px 10px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 0 rgba(197, 160, 89, 0.15),
+    0 1px 0 0 rgba(197, 160, 89, 0.08);
+}
+
+/* Floating Surface Depth (for Modals, Sidebars & Panels) */
+.luxury-surface-elevated {
+  box-shadow: 
+    0 36px 72px -16px rgba(0, 0, 0, 0.98),
+    0 14px 28px -6px rgba(0, 0, 0, 0.8),
+    0 0 40px -5px rgba(197, 160, 89, 0.1),
+    inset 0 1px 0 0 rgba(212, 175, 55, 0.4);
+}
+
+/* ==========================================================================
+   Luxury 3D Entrance CTA — Saeednia Jewellery
+   Sophisticated physical luxury object with polished champagne-gold metallic bevel,
+   multi-layered soft contact shadows, delicate inner depth, and silk-smooth interaction.
+   ========================================================================== */
+
+.luxury-3d-entrance-cta {
+  background: linear-gradient(180deg, #16161B 0%, #0B0B0E 100%);
+  border: 1px solid rgba(212, 175, 55, 0.42);
+  border-radius: 9999px;
+  box-shadow: 
+    0 10px 24px -3px rgba(0, 0, 0, 0.88),
+    0 3px 8px 0 rgba(0, 0, 0, 0.65),
+    0 0 16px -2px rgba(212, 175, 55, 0.12),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.8),
+    inset 0 0 0 1px rgba(212, 175, 55, 0.1);
+  transform: translateY(0) translateZ(0);
+  transition: 
+    transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 300ms ease,
+    background 300ms ease;
+  will-change: transform, box-shadow;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .luxury-3d-entrance-cta:hover {
+    transform: translateY(-1.5px) translateZ(0);
+    border-color: rgba(255, 225, 140, 0.82);
+    background: linear-gradient(180deg, #1F1F26 0%, #111116 100%);
+    box-shadow: 
+      0 16px 32px -4px rgba(0, 0, 0, 0.95),
+      0 6px 14px -1px rgba(0, 0, 0, 0.75),
+      0 0 24px 0 rgba(212, 175, 55, 0.3),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.22),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.85),
+      inset 0 0 0 1px rgba(255, 225, 140, 0.25);
+  }
+}
+
+.luxury-3d-entrance-cta:active {
+  transform: translateY(1px) scale(0.993) translateZ(0) !important;
+  border-color: rgba(212, 175, 55, 0.95) !important;
+  box-shadow: 
+    0 3px 8px -1px rgba(0, 0, 0, 0.9),
+    inset 0 1px 2px rgba(0, 0, 0, 0.7),
+    inset 0 0 0 1px rgba(212, 175, 55, 0.2) !important;
+  transition-duration: 90ms !important;
+}
+
+/* Subtle 3D Depth Layer for Navigation and Interactive Bars */
+.luxury-nav-item {
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1),
+              color 250ms ease,
+              background-color 250ms ease,
+              border-color 250ms ease,
+              box-shadow 250ms ease;
+}
+
+.luxury-nav-item:hover {
+  transform: translateY(-1px);
+}
+
+.luxury-nav-item:active {
+  transform: translateY(0.5px);
+  transition-duration: 80ms;
+}
+
+/* ==========================================================================
+   Continuous Horizontal Marquee (Left to Right) for Categories
+   ========================================================================== */
+
+@keyframes marqueeLTR {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-ltr {
+  display: flex;
+  width: max-content;
+  animation: marqueeLTR 32s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-ltr:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-ltr {
+    animation: none !important;
+    transform: none !important;
+    width: 100% !important;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Strong Persian typography weights */
+.font-persian-title {
+  font-family: var(--font-vazir);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.font-persian-heading {
+  font-family: var(--font-vazir);
+  font-weight: 700;
+}
+
+.font-persian-nav {
+  font-family: var(--font-vazir);
+  font-weight: 600;
+}
+
+.font-persian-body {
+  font-family: var(--font-vazir);
+  font-weight: 400;
+  line-height: 1.85;
+}
+
+/* ==========================================================================
+   Luxury Theme System — Dark Obsidian Default & Warm Ivory Atelier Light
+   Palette:
+   - Main background: warm ivory #F7F4ED
+   - Alternate section: #EEE8DC
+   - Primary text: deep charcoal #24211D (WCAG AA 14.2:1)
+   - Secondary text: warm dark gray #625B52 (WCAG AA 5.8:1)
+   - Headings: near-black #191714 (WCAG AA 16.5:1)
+   - Borders: visible warm gray #D5CCBD (3.2:1 against #FFFEFA)
+   - Cards: #FFFEFA
+   - Champagne-gold: #A77B36 (4.6:1 against #F7F4ED)
+   - Gold hover/accent: #896126 (5.7:1 against #F7F4ED)
+   - Focus ring: #896126
+   ========================================================================== */
+
+/* Component Semantic Helpers: Dark Mode Defaults */
+:root {
+  --bg-main: #090909;
+  --bg-alt: #151413;
+  --bg-dark-surface: #151413;
+  --bg-dark-secondary: #211E1A;
+  --text-primary: #EDE8DF;
+  --text-secondary: #C8C4BC;
+  --text-on-dark: #EDE8DF;
+  --text-secondary-on-dark: #C8C4BC;
+  --accent-gold: #C5A059;
+  --accent-gold-light: #E1C58F;
+  --accent-gold-dark: #A9874F;
+  --border-subtle: rgba(197, 160, 89, 0.15);
+  --border-dark: rgba(197, 160, 89, 0.25);
+  --app-bg: #090909;
+  --app-text: #EDE8DF;
+}
+
+.footer-surface {
+  background-color: #070708;
+}
+.text-footer-heading {
+  color: #EDE8DF;
+}
+.text-footer-brand {
+  color: #EDE8DF;
+}
+.text-footer-gold {
+  color: #D4AF37;
+}
+.text-footer-text {
+  color: #C8C4BC;
+}
+.text-footer-muted {
+  color: #8C8880;
+}
+.bg-footer-card {
+  background-color: #0E0E12;
+}
+
+.drawer-surface {
+  background-color: #08080A;
+}
+.text-drawer-heading {
+  color: #EDE8DF;
+}
+.text-drawer-brand {
+  color: #EDE8DF;
+}
+.text-drawer-gold {
+  color: #D4AF37;
+}
+.text-drawer-text {
+  color: #C8C4BC;
+}
+.text-drawer-muted {
+  color: #8C8880;
+}
+.bg-drawer-control {
+  background-color: #121216;
+}
+.bg-drawer-hover {
+  background-color: #0E0E14;
+}
+.bg-drawer-active {
+  background-color: #14141E;
+}
+
+/* ==========================================================================
+   LIGHT THEME DESIGN SYSTEM (Ivory White, Soft Cream, Caramel & Champagne Gold)
+   Official Palette:
+   - Ivory White: #FAF8F3
+   - Warm White: #F5F1E8
+   - Soft Cream: #EEE7D9
+   - Light Caramel: #C6A47C
+   - Soft Brown: #8A6B4F
+   - Champagne Gold: #C5A059
+   - Muted Gold: #D8BD8A
+   - Deep Charcoal: #24211D
+   - Rich Black: #171513
+   ========================================================================== */
+
+[data-theme="light"],
+html.light {
+  color-scheme: light;
+
+  /* ========================================================================
+     Saeednia International Luxury Master 5-Color Palette:
+     - #906D2D — Dark Bronze Gold (accents, key buttons, icons, lines)
+     - #AC9262 — Matte Gold (borders, subtle details, secondary decor)
+     - #C8B696 — Golden Beige (intermediate surfaces, frames, special sections)
+     - #E4DBCB — Warm Light Cream (warm section backgrounds, tactile depth)
+     - #FFFFFF — Pure White (breathing room, product showcase stages)
+     ======================================================================== */
+  --saeednia-bronze-gold: #906D2D;
+  --saeednia-matte-gold: #AC9262;
+  --saeednia-golden-beige: #C8B696;
+  --saeednia-warm-cream: #E4DBCB;
+  --saeednia-pure-white: #FFFFFF;
+
+  /* Master Typography Contrast Palette (WCAG AA/AAA compliant) */
+  --saeednia-text-heading: #1F1A16;
+  --saeednia-text-body: #4A3F35;
+  --saeednia-text-muted: #6E6153;
+
+  /* Semantic Theme Mappings */
+  --bg-main: #FFFFFF;
+  --bg-alt: #E4DBCB;
+  --bg-card: #FFFFFF;
+  --bg-cream: #E4DBCB;
+  --bg-champagne: #C8B696;
+  --bg-caramel: #AC9262;
+  --bg-dark-surface: #FFFFFF;
+  --bg-dark-secondary: #E4DBCB;
+  --text-primary: #1F1A16;
+  --text-secondary: #4A3F35;
+  --text-muted: #6E6153;
+  --text-on-dark: #FFFFFF;
+  --text-secondary-on-dark: #FAF9F6;
+  --accent-gold: #906D2D;
+  --accent-gold-light: #AC9262;
+  --accent-gold-dark: #785922;
+  --border-subtle: #C8B696;
+  --border-dark: #AC9262;
+  --border-card: #C8B696;
+  --app-bg: #FFFFFF;
+  --app-text: #1F1A16;
+}
+
+/* Base Body with soft warm white background and light, elegant depth */
+[data-theme="light"] body,
+html.light body {
+  background-color: #FAF9F6 !important;
+  background-image: 
+    radial-gradient(ellipse at 15% 10%, rgba(241, 232, 218, 0.45) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 35%, rgba(179, 138, 69, 0.05) 0%, transparent 55%),
+    radial-gradient(ellipse at 30% 75%, rgba(248, 245, 239, 0.7) 0%, transparent 60%) !important;
+  color: #38291F !important;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track,
+html.light ::-webkit-scrollbar-track {
+  background: #F8F5EF;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb,
+html.light ::-webkit-scrollbar-thumb {
+  background: #AC9262;
+  border-radius: 3px;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover,
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #906D2D;
+}
+
+/* All Root Page Containers in Light Mode */
+[data-theme="light"] #page-home,
+[data-theme="light"] #page-contact,
+[data-theme="light"] #page-about,
+[data-theme="light"] #page-collection,
+[data-theme="light"] #page-fine-jewelry,
+[data-theme="light"] #page-blog,
+[data-theme="light"] #page-product-detail,
+[data-theme="light"] #page-article-detail,
+[data-theme="light"] #page-admin,
+html.light #page-home,
+html.light #page-contact,
+html.light #page-about,
+html.light #page-collection,
+html.light #page-fine-jewelry,
+html.light #page-blog,
+html.light #page-product-detail,
+html.light #page-article-detail,
+html.light #page-admin {
+  background-color: #FFFFFF !important;
+  color: #1F1A16 !important;
+}
+
+/* Typography Hierarchy on standard light surfaces */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] .font-persian-heading,
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light .font-persian-heading {
+  color: #1F1A16 !important;
+}
+
+[data-theme="light"] p,
+[data-theme="light"] .font-persian-body,
+html.light p,
+html.light .font-persian-body {
+  color: #4A3F35 !important;
+}
+
+/* Secondary & Muted Text in Light Mode */
+[data-theme="light"] .text-\[\#C8C4BC\],
+[data-theme="light"] .text-\[\#A8A49C\],
+[data-theme="light"] .text-\[\#9E9A92\],
+[data-theme="light"] .text-\[\#8C8880\],
+[data-theme="light"] .text-\[\#7C7870\],
+[data-theme="light"] .text-\[\#736E67\],
+[data-theme="light"] .text-stone-400,
+[data-theme="light"] .text-stone-500,
+html.light .text-\[\#C8C4BC\],
+html.light .text-\[\#A8A49C\],
+html.light .text-\[\#9E9A92\],
+html.light .text-\[\#8C8880\],
+html.light .text-\[\#7C7870\],
+html.light .text-\[\#736E67\],
+html.light .text-stone-400,
+html.light .text-stone-500 {
+  color: #6E6153 !important;
+}
+
+/* Gold Accents on standard light surfaces */
+[data-theme="light"] .text-\[\#D4AF37\],
+[data-theme="light"] .text-\[\#C5A059\],
+[data-theme="light"] .text-\[\#E8C779\],
+[data-theme="light"] .gold-text-accent,
+html.light .text-\[\#D4AF37\],
+html.light .text-\[\#C5A059\],
+html.light .text-\[\#E8C779\],
+html.light .gold-text-accent {
+  color: #906D2D !important;
+}
+
+/* Standard Boutique Cards & Panels in Light Mode */
+[data-theme="light"] .luxury-card-depth,
+html.light .luxury-card-depth {
+  background-color: #FFFFFF !important;
+  color: #1F1A16 !important;
+  border-color: rgba(172, 146, 98, 0.35) !important;
+  box-shadow: 0 4px 20px -2px rgba(31, 26, 22, 0.05), 0 2px 6px 0 rgba(144, 109, 45, 0.03) !important;
+}
+
+[data-theme="light"] .luxury-card-depth:hover,
+html.light .luxury-card-depth:hover {
+  border-color: #906D2D !important;
+  box-shadow: 0 16px 36px -4px rgba(31, 26, 22, 0.08), 0 4px 12px 0 rgba(144, 109, 45, 0.1) !important;
+}
+
+/* Borders & Separators in Light Mode */
+[data-theme="light"] .obsidian-border,
+[data-theme="light"] .border-stone-800,
+[data-theme="light"] .border-stone-800\/80,
+html.light .obsidian-border,
+html.light .border-stone-800,
+html.light .border-stone-800\/80 {
+  border-color: rgba(172, 146, 98, 0.3) !important;
+}
+
+/* ==========================================================================
+   SEMANTIC COLOR SYSTEM FOR LIGHT THEME
+   The 4 requested sections share the exact rich warm gold palette of the
+   «مشاهده جواهرات» button (#B38A45), with high-contrast espresso headings,
+   warm cream cards, and radiant gold accents.
+   ========================================================================== */
+
+/* 1. SECTION C — JEWELRY CATEGORIES */
+[data-theme="light"] #section-categories,
+html.light #section-categories {
+  background-color: var(--saeednia-warm-cream) !important;
+  background-image: linear-gradient(180deg, #FFFFFF 0%, #E4DBCB 14%, #E4DBCB 86%, #FFFFFF 100%) !important;
+  color: var(--saeednia-text-heading) !important;
+}
+
+[data-theme="light"] #section-categories h2,
+html.light #section-categories h2 {
+  color: var(--saeednia-text-heading) !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] #section-categories .font-cinzel,
+html.light #section-categories .font-cinzel,
+[data-theme="light"] #section-categories svg,
+html.light #section-categories svg {
+  color: var(--saeednia-bronze-gold) !important;
+}
+
+/* 2. SECTION D — LATEST CREATIONS (3D COVERFLOW) */
+[data-theme="light"] #section-latest-works,
+html.light #section-latest-works {
+  background-color: var(--saeednia-pure-white) !important;
+  background-image: radial-gradient(ellipse at 50% 50%, rgba(200, 182, 150, 0.15) 0%, transparent 70%) !important;
+  color: var(--saeednia-text-heading) !important;
+}
+
+[data-theme="light"] #section-latest-works h2,
+html.light #section-latest-works h2 {
+  color: var(--saeednia-text-heading) !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] #section-latest-works p:not([id^="hover-overlay-"] *),
+html.light #section-latest-works p:not([id^="hover-overlay-"] *) {
+  color: var(--saeednia-text-body) !important;
+}
+
+/* Latest Creations Card Hover Overlay Text Override */
+#section-latest-works .overlay-light-theme h3,
+[data-theme="light"] #section-latest-works .overlay-light-theme h3,
+html.light #section-latest-works .overlay-light-theme h3 {
+  color: #FAF8F3 !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6) !important;
+}
+
+#section-latest-works .overlay-light-theme p,
+[data-theme="light"] #section-latest-works .overlay-light-theme p,
+html.light #section-latest-works .overlay-light-theme p {
+  color: #D7C3A0 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6) !important;
+}
+
+#section-latest-works .overlay-light-theme button,
+#section-latest-works .overlay-light-theme button span,
+#section-latest-works .overlay-light-theme button svg,
+[data-theme="light"] #section-latest-works .overlay-light-theme button,
+[data-theme="light"] #section-latest-works .overlay-light-theme button span,
+[data-theme="light"] #section-latest-works .overlay-light-theme button svg,
+html.light #section-latest-works .overlay-light-theme button,
+html.light #section-latest-works .overlay-light-theme button span,
+html.light #section-latest-works .overlay-light-theme button svg {
+  color: #FFFFFF !important;
+}
+
+#section-latest-works .overlay-dark-theme h3,
+[data-theme="light"] #section-latest-works .overlay-dark-theme h3,
+html.light #section-latest-works .overlay-dark-theme h3 {
+  color: #1F1A16 !important;
+}
+
+#section-latest-works .overlay-dark-theme p,
+[data-theme="light"] #section-latest-works .overlay-dark-theme p,
+html.light #section-latest-works .overlay-dark-theme p {
+  color: #4A3F35 !important;
+}
+
+[data-theme="light"] #section-latest-works .font-cinzel,
+html.light #section-latest-works .font-cinzel,
+[data-theme="light"] #section-latest-works svg,
+html.light #section-latest-works svg {
+  color: var(--saeednia-bronze-gold) !important;
+}
+
+[data-theme="light"] #section-latest-works a,
+html.light #section-latest-works a {
+  color: var(--saeednia-bronze-gold) !important;
+}
+
+[data-theme="light"] #section-latest-works a:hover,
+html.light #section-latest-works a:hover {
+  color: #785922 !important;
+}
+
+/* Navigation Controls in Latest Works */
+[data-theme="light"] #btn-showcase-prev,
+[data-theme="light"] #btn-showcase-next,
+html.light #btn-showcase-prev,
+html.light #btn-showcase-next {
+  background-color: var(--saeednia-pure-white) !important;
+  border-color: var(--saeednia-matte-gold) !important;
+  color: var(--saeednia-bronze-gold) !important;
+  box-shadow: 0 4px 14px rgba(74, 63, 53, 0.08) !important;
+}
+
+[data-theme="light"] #btn-showcase-prev:hover,
+[data-theme="light"] #btn-showcase-next:hover,
+html.light #btn-showcase-prev:hover,
+html.light #btn-showcase-next:hover {
+  background-color: var(--saeednia-bronze-gold) !important;
+  border-color: var(--saeednia-bronze-gold) !important;
+  color: var(--saeednia-pure-white) !important;
+}
+
+/* 3. SECTION E — OUR HERITAGE & 30 YEARS EXPERIENCE */
+[data-theme="light"] #section-heritage-30-years,
+html.light #section-heritage-30-years {
+  background-color: var(--saeednia-warm-cream) !important;
+  background-image: linear-gradient(180deg, #FFFFFF 0%, #E4DBCB 14%, #C8B696 50%, #E4DBCB 86%, #FFFFFF 100%) !important;
+  border-top: 1px solid rgba(200, 182, 150, 0.3) !important;
+  border-bottom: 1px solid rgba(200, 182, 150, 0.3) !important;
+  color: var(--saeednia-text-heading) !important;
+}
+
+[data-theme="light"] section#section-heritage-30-years > div > h2,
+html.light section#section-heritage-30-years > div > h2 {
+  color: var(--saeednia-text-heading) !important;
+  text-shadow: none !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] section#section-heritage-30-years > div > blockquote,
+html.light section#section-heritage-30-years > div > blockquote {
+  color: var(--saeednia-text-heading) !important;
+  text-shadow: none !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="light"] #section-heritage-30-years span,
+html.light #section-heritage-30-years span {
+  color: var(--saeednia-text-body) !important;
+}
+
+[data-theme="light"] #section-heritage-30-years .font-cinzel,
+html.light #section-heritage-30-years .font-cinzel {
+  color: var(--saeednia-bronze-gold) !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] #section-heritage-30-years svg,
+html.light #section-heritage-30-years svg {
+  color: var(--saeednia-bronze-gold) !important;
+}
+
+/* 4. SECTION F — VISITING OUR ATELIER */
+[data-theme="light"] #section-boutique-visit,
+html.light #section-boutique-visit {
+  background-color: var(--saeednia-pure-white) !important;
+  background-image: radial-gradient(ellipse at 50% 40%, rgba(228, 219, 203, 0.3) 0%, transparent 75%) !important;
+  color: var(--saeednia-text-heading) !important;
+}
+
+[data-theme="light"] #section-boutique-visit h2,
+html.light #section-boutique-visit h2 {
+  color: var(--saeednia-text-heading) !important;
+}
+
+[data-theme="light"] #section-boutique-visit p,
+html.light #section-boutique-visit p {
+  color: var(--saeednia-text-body) !important;
+}
+
+[data-theme="light"] #section-boutique-visit .font-cinzel,
+html.light #section-boutique-visit .font-cinzel {
+  color: var(--saeednia-bronze-gold) !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] #section-boutique-visit svg,
+html.light #section-boutique-visit svg {
+  color: var(--saeednia-bronze-gold) !important;
+}
+
+/* 5. FOOTER */
+[data-theme="light"] .footer-surface,
+[data-theme="light"] #main-footer,
+html.light .footer-surface,
+html.light #main-footer {
+  background-color: var(--saeednia-golden-beige) !important;
+  background-image: linear-gradient(180deg, #D4C5A9 0%, #C8B696 50%, #BDAB8A 100%) !important;
+  border-top: 1px solid rgba(172, 146, 98, 0.35) !important;
+  color: var(--saeednia-text-body) !important;
+}
+
+[data-theme="light"] .text-footer-heading,
+[data-theme="light"] #main-footer h4,
+html.light .text-footer-heading,
+html.light #main-footer h4 {
+  color: var(--saeednia-text-heading) !important;
+  border-color: rgba(172, 146, 98, 0.3) !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] .text-footer-brand,
+html.light .text-footer-brand {
+  color: var(--saeednia-bronze-gold) !important;
+}
+
+[data-theme="light"] .text-footer-gold,
+[data-theme="light"] #main-footer svg,
+html.light .text-footer-gold,
+html.light #main-footer svg {
+  color: var(--saeednia-bronze-gold) !important;
+}
+
+[data-theme="light"] .footer-brand-matte-gold,
+html.light .footer-brand-matte-gold {
+  color: var(--saeednia-bronze-gold) !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] .text-footer-text,
+[data-theme="light"] #main-footer p,
+[data-theme="light"] #main-footer nav a,
+html.light .text-footer-text,
+html.light #main-footer p,
+html.light #main-footer nav a {
+  color: var(--saeednia-text-body) !important;
+}
+
+[data-theme="light"] #main-footer nav a:hover,
+html.light #main-footer nav a:hover {
+  color: var(--saeednia-bronze-gold) !important;
+}
+
+[data-theme="light"] .text-footer-muted,
+html.light .text-footer-muted {
+  color: var(--saeednia-text-muted) !important;
+}
+
+[data-theme="light"] .bg-footer-card,
+html.light .bg-footer-card {
+  background-color: var(--saeednia-pure-white) !important;
+  border: 1px solid rgba(172, 146, 98, 0.35) !important;
+  color: var(--saeednia-text-heading) !important;
+  box-shadow: 0 4px 16px rgba(74, 63, 53, 0.06) !important;
+}
+
+[data-theme="light"] .bg-footer-card:hover,
+html.light .bg-footer-card:hover {
+  background-color: #FFFFFF !important;
+  border-color: var(--saeednia-bronze-gold) !important;
+  box-shadow: 0 8px 24px rgba(144, 109, 45, 0.12) !important;
+}
+
+/* 6. HEADER: Warm Light Cream (#E4DBCB) in Light Mode */
+[data-theme="light"] #main-header,
+html.light #main-header {
+  background-color: rgba(228, 219, 203, 0.96) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(172, 146, 98, 0.25) !important;
+  box-shadow: 0 4px 20px -2px rgba(74, 63, 53, 0.05) !important;
+}
+
+[data-theme="light"] #main-header nav a,
+html.light #main-header nav a {
+  color: var(--saeednia-text-heading) !important;
+}
+
+[data-theme="light"] #main-header nav a:hover,
+html.light #main-header nav a:hover {
+  color: var(--saeednia-bronze-gold) !important;
+}
+
+[data-theme="light"] #main-header nav a.text-\[\#D4AF37\],
+html.light #main-header nav a.text-\[\#D4AF37\] {
+  color: var(--saeednia-bronze-gold) !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] #main-header button,
+[data-theme="light"] #main-header .luxury-btn-tactile-secondary,
+html.light #main-header button,
+html.light #main-header .luxury-btn-tactile-secondary {
+  background-color: #FFFFFF !important;
+  color: var(--saeednia-text-heading) !important;
+  border-color: rgba(172, 146, 98, 0.35) !important;
+}
+
+[data-theme="light"] #main-header button:hover,
+html.light #main-header button:hover {
+  border-color: var(--saeednia-bronze-gold) !important;
+  color: var(--saeednia-bronze-gold) !important;
+  background-color: #FFFFFF !important;
+}
+
+[data-theme="light"] .header-feather-shadow,
+html.light .header-feather-shadow {
+  height: 14px !important;
+  background: linear-gradient(180deg, rgba(172, 146, 98, 0.15) 0%, transparent 100%) !important;
+  filter: blur(4px) !important;
+}
+
+/* 4. MASTER .on-dark normalization in Light Mode */
+[data-theme="light"] .on-dark,
+[data-theme="light"] [data-surface="dark"],
+html.light .on-dark,
+html.light [data-surface="dark"] {
+  color: #1F1A16;
+}
+
+[data-theme="light"] .on-dark h1,
+[data-theme="light"] .on-dark h2,
+[data-theme="light"] .on-dark h3,
+[data-theme="light"] .on-dark h4,
+[data-theme="light"] [data-surface="dark"] h1,
+[data-theme="light"] [data-surface="dark"] h2,
+[data-theme="light"] [data-surface="dark"] h3,
+[data-theme="light"] [data-surface="dark"] h4,
+html.light .on-dark h1,
+html.light .on-dark h2,
+html.light .on-dark h3,
+html.light .on-dark h4,
+html.light [data-surface="dark"] h1,
+html.light [data-surface="dark"] h2,
+html.light [data-surface="dark"] h3,
+html.light [data-surface="dark"] h4 {
+  color: #1F1A16 !important;
+}
+
+[data-theme="light"] .on-dark p,
+[data-theme="light"] .on-dark blockquote,
+[data-theme="light"] [data-surface="dark"] p,
+[data-theme="light"] [data-surface="dark"] blockquote,
+html.light .on-dark p,
+html.light .on-dark blockquote,
+html.light [data-surface="dark"] p,
+html.light [data-surface="dark"] blockquote {
+  color: #4A3F35 !important;
+}
+
+/* Category Marquee Cards in Light Mode */
+[data-theme="light"] .category-card-item,
+html.light .category-card-item {
+  background-color: #FFFFFF !important;
+  border-color: rgba(172, 146, 98, 0.35) !important;
+  box-shadow: 0 4px 20px rgba(31, 26, 22, 0.05) !important;
+}
+
+[data-theme="light"] .category-card-item:hover,
+html.light .category-card-item:hover {
+  border-color: #906D2D !important;
+  box-shadow: 0 12px 28px rgba(31, 26, 22, 0.08) !important;
+}
+
+[data-theme="light"] .category-card-item svg,
+html.light .category-card-item svg {
+  color: #906D2D !important;
+}
+
+[data-theme="light"] .category-card-item span,
+html.light .category-card-item span {
+  color: #1F1A16 !important;
+}
+
+/* Product Cards in Light Mode */
+[data-theme="light"] article[id^="product-card-"],
+[data-theme="light"] #section-latest-works article,
+html.light article[id^="product-card-"],
+html.light #section-latest-works article {
+  background-color: #FFFFFF !important;
+  border-color: rgba(172, 146, 98, 0.35) !important;
+  box-shadow: 0 4px 20px rgba(31, 26, 22, 0.05) !important;
+}
+
+[data-theme="light"] article[id^="product-card-"]:hover,
+[data-theme="light"] #section-latest-works article:hover,
+html.light article[id^="product-card-"]:hover,
+html.light #section-latest-works article:hover {
+  border-color: #906D2D !important;
+  box-shadow: 0 16px 36px rgba(144, 109, 45, 0.12) !important;
+}
+
+/* Drawer Surface in Light Mode */
+[data-theme="light"] .drawer-surface,
+html.light .drawer-surface {
+  background-color: #FFFFFF !important;
+  border-color: rgba(172, 146, 98, 0.35) !important;
+}
+
+[data-theme="light"] .text-drawer-heading,
+html.light .text-drawer-heading {
+  color: #1F1A16 !important;
+}
+
+[data-theme="light"] .text-drawer-text,
+html.light .text-drawer-text {
+  color: #4A3F35 !important;
+}
+
+[data-theme="light"] .text-drawer-muted,
+html.light .text-drawer-muted {
+  color: #6E6153 !important;
+}
+
+[data-theme="light"] .text-drawer-gold,
+html.light .text-drawer-gold {
+  color: #906D2D !important;
+}
+
+[data-theme="light"] .bg-drawer-control,
+html.light .bg-drawer-control {
+  background-color: #FAF8F5 !important;
+  border-color: rgba(172, 146, 98, 0.35) !important;
+}
+
+[data-theme="light"] .bg-drawer-hover:hover,
+html.light .bg-drawer-hover:hover {
+  background-color: #E4DBCB !important;
+}
+
+[data-theme="light"] .bg-drawer-active,
+html.light .bg-drawer-active {
+  background-color: #E4DBCB !important;
+  color: #906D2D !important;
+}
+
+/* Form Inputs in Light Mode */
+[data-theme="light"] input[type="text"],
+[data-theme="light"] input[type="password"],
+[data-theme="light"] input[type="number"],
+[data-theme="light"] input[type="url"],
+[data-theme="light"] input[type="email"],
+[data-theme="light"] textarea,
+[data-theme="light"] select,
+html.light input[type="text"],
+html.light input[type="password"],
+html.light input[type="number"],
+html.light input[type="url"],
+html.light input[type="email"],
+html.light textarea,
+html.light select {
+  background-color: #FFFFFF !important;
+  border-color: rgba(172, 146, 98, 0.4) !important;
+  color: #1F1A16 !important;
+}
+
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder,
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #6E6153 !important;
+  opacity: 0.9 !important;
+}
+
+[data-theme="light"] input:focus,
+[data-theme="light"] textarea:focus,
+[data-theme="light"] select:focus,
+html.light input:focus,
+html.light textarea:focus,
+html.light select:focus {
+  border-color: #906D2D !important;
+  outline: 2px solid #906D2D !important;
+  outline-offset: 1px !important;
+}
+
+/* Modals & Dialogs in Light Mode */
+[data-theme="light"] #product-detail-modal > div,
+[data-theme="light"] #global-search-modal > div,
+html.light #product-detail-modal > div,
+html.light #global-search-modal > div {
+  background-color: #FFFFFF !important;
+  border-color: rgba(172, 146, 98, 0.35) !important;
+  color: #1F1A16 !important;
+  box-shadow: 0 24px 60px rgba(31, 26, 22, 0.16) !important;
+}
+
+/* Buttons in Light Mode */
+[data-theme="light"] .luxury-btn-tactile-primary,
+html.light .luxury-btn-tactile-primary {
+  background-color: #906D2D !important;
+  color: #FFFFFF !important;
+  border-color: #906D2D !important;
+}
+
+[data-theme="light"] .luxury-btn-tactile-primary:hover,
+html.light .luxury-btn-tactile-primary:hover {
+  background-color: #7D5E26 !important;
+}
+
+[data-theme="light"] .luxury-btn-tactile-secondary,
+html.light .luxury-btn-tactile-secondary {
+  background-color: #FFFFFF !important;
+  color: #1F1A16 !important;
+  border-color: rgba(172, 146, 98, 0.4) !important;
+  box-shadow: 0 2px 8px rgba(74, 63, 53, 0.05) !important;
+}
+
+[data-theme="light"] .luxury-btn-tactile-secondary:hover,
+html.light .luxury-btn-tactile-secondary:hover {
+  border-color: #906D2D !important;
+  color: #906D2D !important;
+}
+
+/* Atmospheric Halos in Light Mode */
+[data-theme="light"] #luxury-atmospheric-backdrop > div:nth-child(1),
+html.light #luxury-atmospheric-backdrop > div:nth-child(1) {
+  background: radial-gradient(circle, rgba(200, 182, 150, 0.16) 0%, rgba(228, 219, 203, 0.08) 50%, transparent 75%) !important;
+}
+
+[data-theme="light"] #luxury-atmospheric-backdrop > div:nth-child(2),
+html.light #luxury-atmospheric-backdrop > div:nth-child(2) {
+  background: radial-gradient(circle, rgba(228, 219, 203, 0.2) 0%, rgba(200, 182, 150, 0.06) 50%, transparent 75%) !important;
+}
+
+[data-theme="light"] #luxury-atmospheric-backdrop > div:nth-child(3),
+html.light #luxury-atmospheric-backdrop > div:nth-child(3) {
+  background: radial-gradient(circle, rgba(172, 146, 98, 0.12) 0%, transparent 70%) !important;
+}
+
+[data-theme="light"] #luxury-atmospheric-backdrop > div:nth-child(4),
+html.light #luxury-atmospheric-backdrop > div:nth-child(4) {
+  background: radial-gradient(circle, rgba(200, 182, 150, 0.1) 0%, transparent 70%) !important;
+}
+
+/* Accessibility Focus Ring */
+[data-theme="light"] :focus-visible,
+html.light :focus-visible {
+  outline: 2px solid #906D2D !important;
+  outline-offset: 2px !important;
+}
+
+/* ==========================================================================
+   SUBPAGE EDITORIAL CONTRAST HEADER CAPSULE
+   Reverse/inverted backdrop contrasting with page theme:
+   - Light Theme page -> Dark obsidian/espresso luxury card with luminous ivory/gold text
+   - Dark Theme page  -> Ivory/warm cream luxury card with deep charcoal/espresso text
+   ========================================================================== */
+
+.subpage-contrast-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 640px) {
+  .subpage-contrast-hero {
+    border-radius: 1.5rem;
+  }
+}
+
+/* --- LIGHT THEME (Matches Header Warm Light Cream #E4DBCB with Soft Dark Brown & Gold Halos) --- */
+.subpage-hero-light,
+[data-theme="light"] .subpage-contrast-hero,
+html.light .subpage-contrast-hero {
+  background-color: rgba(228, 219, 203, 0.96) !important;
+  background-image:
+    radial-gradient(ellipse 60% 90% at 0% 50%, rgba(144, 109, 45, 0.16) 0%, rgba(74, 63, 53, 0.08) 45%, transparent 75%),
+    radial-gradient(ellipse 60% 90% at 100% 50%, rgba(144, 109, 45, 0.16) 0%, rgba(74, 63, 53, 0.08) 45%, transparent 75%),
+    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.5) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(238, 230, 218, 0.98) 0%, rgba(228, 219, 203, 0.96) 50%, rgba(220, 209, 190, 0.97) 100%) !important;
+  border: 1px solid #ab9364 !important;
+  border-color: #ab9364 !important;
+  box-shadow: 0 16px 36px -8px rgba(74, 63, 53, 0.12),
+              0 0 0 1px rgba(172, 146, 98, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+}
+
+.subpage-hero-light .hero-specular-bar,
+[data-theme="light"] .subpage-contrast-hero .hero-specular-bar,
+html.light .subpage-contrast-hero .hero-specular-bar {
+  background: linear-gradient(90deg, transparent, rgba(144, 109, 45, 0.65), transparent) !important;
+}
+
+/* Halos of gentle dark brown & gold in Light Mode (positioned on the left and right sides) */
+.subpage-hero-light .subpage-hero-gold-halo-top,
+.subpage-hero-light .subpage-hero-gold-halo-bottom,
+[data-theme="light"] .subpage-contrast-hero .subpage-hero-gold-halo-top,
+[data-theme="light"] .subpage-contrast-hero .subpage-hero-gold-halo-bottom,
+html.light .subpage-contrast-hero .subpage-hero-gold-halo-top,
+html.light .subpage-contrast-hero .subpage-hero-gold-halo-bottom {
+  display: none !important;
+}
+
+.subpage-hero-light .subpage-hero-gold-halo-left,
+[data-theme="light"] .subpage-contrast-hero .subpage-hero-gold-halo-left,
+html.light .subpage-contrast-hero .subpage-hero-gold-halo-left {
+  display: block !important;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.22) 0%, rgba(144, 109, 45, 0.15) 35%, rgba(74, 63, 53, 0.08) 60%, transparent 80%) !important;
+  opacity: 0.9 !important;
+}
+
+.subpage-hero-light .subpage-hero-gold-halo-right,
+[data-theme="light"] .subpage-contrast-hero .subpage-hero-gold-halo-right,
+html.light .subpage-contrast-hero .subpage-hero-gold-halo-right {
+  display: block !important;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.22) 0%, rgba(144, 109, 45, 0.15) 35%, rgba(74, 63, 53, 0.08) 60%, transparent 80%) !important;
+  opacity: 0.9 !important;
+}
+
+/* Dark, highly legible text in Light Mode */
+.subpage-hero-light h1,
+[data-theme="light"] .subpage-contrast-hero h1,
+html.light .subpage-contrast-hero h1 {
+  color: #1F1A16 !important;
+  text-shadow: none !important;
+}
+
+.subpage-hero-light h2,
+[data-theme="light"] .subpage-contrast-hero h2,
+html.light .subpage-contrast-hero h2 {
+  color: #2E2721 !important;
+  text-shadow: none !important;
+}
+
+.subpage-hero-light p,
+.subpage-hero-light .font-persian-body,
+[data-theme="light"] .subpage-contrast-hero p,
+[data-theme="light"] .subpage-contrast-hero .font-persian-body,
+html.light .subpage-contrast-hero p,
+html.light .subpage-contrast-hero .font-persian-body {
+  color: #4A3F35 !important;
+  text-shadow: none !important;
+}
+
+.subpage-hero-light .hero-brand-eyebrow,
+.subpage-hero-light .font-cinzel,
+[data-theme="light"] .subpage-contrast-hero .hero-brand-eyebrow,
+[data-theme="light"] .subpage-contrast-hero .font-cinzel,
+html.light .subpage-contrast-hero .hero-brand-eyebrow,
+html.light .subpage-contrast-hero .font-cinzel {
+  color: #906D2D !important;
+  text-shadow: none !important;
+}
+
+.subpage-hero-light svg,
+[data-theme="light"] .subpage-contrast-hero svg,
+html.light .subpage-contrast-hero svg {
+  color: #906D2D !important;
+}
+
+.subpage-hero-light .hero-gold-divider,
+[data-theme="light"] .subpage-contrast-hero .hero-gold-divider,
+html.light .subpage-contrast-hero .hero-gold-divider {
+  background: linear-gradient(90deg, transparent, #906D2D 50%, transparent) !important;
+}
+
+/* --- DARK THEME: STRICTLY APPLIED ONLY UNDER DARK THEME SELECTORS --- */
+.subpage-hero-dark,
+[data-theme="dark"] .subpage-contrast-hero,
+html.dark .subpage-contrast-hero {
+  background: linear-gradient(180deg, rgba(16, 14, 19, 0.95) 0%, rgba(9, 8, 12, 0.98) 100%) !important;
+  border: 1px solid rgba(197, 160, 89, 0.35) !important;
+  box-shadow: 0 25px 65px -12px rgba(0, 0, 0, 0.9),
+              0 0 35px -5px rgba(226, 192, 116, 0.12),
+              inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+.subpage-hero-dark .hero-specular-bar,
+[data-theme="dark"] .subpage-contrast-hero .hero-specular-bar,
+html.dark .subpage-contrast-hero .hero-specular-bar {
+  background: linear-gradient(90deg, transparent, rgba(226, 192, 116, 0.85), transparent) !important;
+}
+
+.subpage-hero-dark .subpage-hero-gold-halo-left,
+.subpage-hero-dark .subpage-hero-gold-halo-right,
+[data-theme="dark"] .subpage-contrast-hero .subpage-hero-gold-halo-left,
+[data-theme="dark"] .subpage-contrast-hero .subpage-hero-gold-halo-right,
+html.dark .subpage-contrast-hero .subpage-hero-gold-halo-left,
+html.dark .subpage-contrast-hero .subpage-hero-gold-halo-right {
+  display: none !important;
+}
+
+.subpage-hero-dark .subpage-hero-gold-halo-top,
+[data-theme="dark"] .subpage-contrast-hero .subpage-hero-gold-halo-top,
+html.dark .subpage-contrast-hero .subpage-hero-gold-halo-top {
+  display: block !important;
+  background: radial-gradient(circle, rgba(226, 192, 116, 0.22) 0%, rgba(197, 160, 89, 0.08) 50%, transparent 75%) !important;
+}
+
+.subpage-hero-dark .subpage-hero-gold-halo-bottom,
+[data-theme="dark"] .subpage-contrast-hero .subpage-hero-gold-halo-bottom,
+html.dark .subpage-contrast-hero .subpage-hero-gold-halo-bottom {
+  display: block !important;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.16) 0%, rgba(172, 146, 98, 0.05) 50%, transparent 75%) !important;
+}
+
+.subpage-hero-dark h1,
+[data-theme="dark"] .subpage-contrast-hero h1,
+html.dark .subpage-contrast-hero h1 {
+  color: #FAF8F3 !important;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.7);
+}
+
+.subpage-hero-dark h2,
+[data-theme="dark"] .subpage-contrast-hero h2,
+html.dark .subpage-contrast-hero h2 {
+  color: #F0EAE1 !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+.subpage-hero-dark p,
+.subpage-hero-dark .font-persian-body,
+[data-theme="dark"] .subpage-contrast-hero p,
+[data-theme="dark"] .subpage-contrast-hero .font-persian-body,
+html.dark .subpage-contrast-hero p,
+html.dark .subpage-contrast-hero .font-persian-body {
+  color: #DCD5C9 !important;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+.subpage-hero-dark .hero-brand-eyebrow,
+.subpage-hero-dark .font-cinzel,
+[data-theme="dark"] .subpage-contrast-hero .hero-brand-eyebrow,
+[data-theme="dark"] .subpage-contrast-hero .font-cinzel,
+html.dark .subpage-contrast-hero .hero-brand-eyebrow,
+html.dark .subpage-contrast-hero .font-cinzel {
+  color: #E2C074 !important;
+  text-shadow: 0 0 12px rgba(226, 192, 116, 0.4);
+}
+
+.subpage-hero-dark svg,
+[data-theme="dark"] .subpage-contrast-hero svg,
+html.dark .subpage-contrast-hero svg {
+  color: #E2C074 !important;
+}
+
+.subpage-hero-dark .hero-gold-divider,
+[data-theme="dark"] .subpage-contrast-hero .hero-gold-divider,
+html.dark .subpage-contrast-hero .hero-gold-divider {
+  background: linear-gradient(90deg, transparent, rgba(226, 192, 116, 0.75), transparent) !important;
+}
+
+
+
+
+
