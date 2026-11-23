@@ -8,7 +8,6 @@ import { defineConfig } from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: '/saeednia-jewellery-public-demo/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
